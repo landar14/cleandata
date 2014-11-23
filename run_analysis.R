@@ -52,4 +52,4 @@ tidy<-arrange(tidy, subject, activity_label)
 #create a tidy data set with the average of each variable for each activity and each subject
 tidymelt<-melt(tidy, id=c("subject","activity_label"), measure.vars=c(setdiff(colnames(tidy), c("subject","activity_label"))))
 tidyset<-dcast(tidymelt, subject+activity_label~variable, mean)
-write.table(tidyset, "tidyset.txt")
+write.table(tidyset, "tidyset.txt", row.name=FALSE)
